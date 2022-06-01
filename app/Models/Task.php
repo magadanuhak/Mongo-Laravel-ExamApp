@@ -16,8 +16,10 @@ class Task extends Model
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
+        'id',
         'title',
-        'description'
+        'description',
+        'updated_at'
     ];
 
     protected $casts = [

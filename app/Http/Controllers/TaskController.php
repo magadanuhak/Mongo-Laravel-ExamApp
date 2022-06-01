@@ -31,15 +31,15 @@ class TaskController extends Controller
         return response()->json($task);
     }
 
-    public function destroy(Task $task)
+    public function delete(Task $task)
     {
         return response()->json(['deleted' => (int)$task->delete()]);
     }
 
-    public function update(Task $task, UpdateTaskRequest $request)
+    public function update(UpdateTaskRequest $request, Task $task)
     {
-        $toUpdate = $request->only($task->getFillable());
+       $updated= $task->update($request->all());
 
-        return response()->json(['updated' => (int)$task->update($toUpdate)]);
+        return response()->json(['updated' => $updated]);
     }
 }

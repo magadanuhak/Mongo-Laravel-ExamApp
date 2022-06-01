@@ -14,6 +14,14 @@ class TaskController extends Controller
         return response()->json(Task::all());
     }
 
+    public function allForWeb()
+    {
+        //Task::all()->each(function ($task){ $task->delete();});
+        $allTasks = Task::all();
+
+        return view('welcome', compact('allTasks'));
+    }
+
     public function create(CreateTaskRequest $request)
     {
         $created = Task::query()->create(

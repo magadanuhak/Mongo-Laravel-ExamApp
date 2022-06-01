@@ -38,7 +38,7 @@ class TaskController extends Controller
 
     public function update(UpdateTaskRequest $request, Task $task)
     {
-       $updated= $task->update($request->all());
+        $updated = $task->update($request->all());
 
         return response()->json(['updated' => $updated]);
     }
